@@ -2154,26 +2154,52 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight)
 {
-    if (nHeight == 0) {
-        return 17500000 * COIN;
-    } else if (nHeight > 0 && nHeight <= 200) {
-        return 2500 * COIN;
-    } else if (nHeight > 200 && nHeight <= 775600) {
-        return 7 * COIN;
-    } else if (nHeight > 775600 && nHeight <= 1043999) {
-        return 4.5 * COIN;
-    } else if (nHeight > 1043999 && nHeight <= 1562398) {
-        return 3.6 * COIN;
-    } else {
-        return 2.7 * COIN;
+
+   if (nHeight == 0) {
+        return 2499824880 * COIN;
+    }else if (nHeight > 0 && nHeight <= 172800) {
+        return 880 * COIN;
+    }else if (nHeight > 172800 && nHeight <= 525600) {
+        return 440 * COIN; 
+    }else if (nHeight > 525600 && nHeight <= 1051200) {
+        return 330 * COIN;
+    } else if (nHeight > 1051200 && nHeight <= 1576800) {
+        return 220 * COIN;
+    } else if (nHeight > 1576800 && nHeight <= 2102400) {
+        return 110 * COIN;
+    } else if (nHeight > 2102400 && nHeight <= 2628000) {
+        return 55 * COIN;
+    }else if (nHeight > 2628000 && nHeight <= 3153600) {
+        return 25 * COIN;
+    }else if (nHeight > 3153600 && nHeight <= 3679200) {
+        return 10 * COIN;
+    }else {
+        return 5 * COIN;
     }
 }
 
+
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = blockValue / 5 * 3;
+
+ LogPrintf("$$$ GetMasternodePayment method  nHeight ..%d\n",nHeight);
+ LogPrintf("$$$ GetMasternodePayment method blockValue  ..%d\n",blockValue);
+
+  int64_t ret = 0;
+        if (nHeight >=0 && nHeight <= 525600) {
+			
+        ret = blockValue / 20 * 13;
+	LogPrintf("$$$ MN value for this block -->%d",ret);
+    } 
+	else {
+               ret = blockValue / 5 * 3;
+               LogPrintf("$$$ MN value for this block -->%d",ret);
+             }
+
     return ret;
 }
+
+
 
 bool IsInitialBlockDownload()
 {
