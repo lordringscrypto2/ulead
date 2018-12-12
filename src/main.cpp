@@ -2155,27 +2155,28 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
 
-   if (nHeight == 0) {
+if (nHeight == 0) {
         return 2499824880 * COIN;
     }else if (nHeight > 0 && nHeight <= 172800) {
         return 880 * COIN;
-    }else if (nHeight > 172800 && nHeight <= 525600) {
-        return 440 * COIN; 
-    }else if (nHeight > 525600 && nHeight <= 1051200) {
+    }else if (nHeight > 172800 && nHeight <= 698400) {
+        return 440 * COIN;
+    }else if (nHeight > 698400 && nHeight <= 1224000) {
         return 330 * COIN;
-    } else if (nHeight > 1051200 && nHeight <= 1576800) {
+    } else if (nHeight > 1224000 && nHeight <= 1749600) {
         return 220 * COIN;
-    } else if (nHeight > 1576800 && nHeight <= 2102400) {
+    } else if (nHeight > 1749600 && nHeight <= 2275200) {
         return 110 * COIN;
-    } else if (nHeight > 2102400 && nHeight <= 2628000) {
+    } else if (nHeight > 2275200 && nHeight <= 2800800) {
         return 55 * COIN;
-    }else if (nHeight > 2628000 && nHeight <= 3153600) {
+    }else if (nHeight > 2800800 && nHeight <= 3326400) {
         return 25 * COIN;
-    }else if (nHeight > 3153600 && nHeight <= 3679200) {
+    }else if (nHeight > 3326400 && nHeight <= 3852000) {
         return 10 * COIN;
     }else {
         return 5 * COIN;
     }
+
 }
 
 
