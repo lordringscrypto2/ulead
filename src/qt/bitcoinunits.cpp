@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(PHR);
-    unitlist.append(mPHR);
-    unitlist.append(uPHR);
+    unitlist.append(ULEAD);
+    unitlist.append(mULEAD);
+    unitlist.append(uULEAD);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case PHR:
-    case mPHR:
-    case uPHR:
+    case ULEAD:
+    case mULEAD:
+    case uULEAD:
         return true;
     default:
         return false;
@@ -41,12 +41,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case PHR:
-        return QString("phore");
-    case mPHR:
-        return QString("mphore");
-    case uPHR:
-        return QString::fromUtf8("uphore");
+    case ULEAD:
+        return QString("ulead");
+    case mULEAD:
+        return QString("mulead");
+    case uULEAD:
+        return QString::fromUtf8("uulead");
     default:
         return QString("???");
     }
@@ -56,23 +56,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case PHR:
-            return QString("PHR");
-        case mPHR:
-            return QString("mPHR");
-        case uPHR:
-            return QString::fromUtf8("μPHR");
+        case ULEAD:
+            return QString("ULEAD");
+        case mULEAD:
+            return QString("mULEAD");
+        case uULEAD:
+            return QString::fromUtf8("μULEAD");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case PHR:
-            return QString("tPHR");
-        case mPHR:
-            return QString("mtPHR");
-        case uPHR:
-            return QString::fromUtf8("μtPHR");
+        case ULEAD:
+            return QString("tULEAD");
+        case mULEAD:
+            return QString("mtULEAD");
+        case uULEAD:
+            return QString::fromUtf8("μtULEAD");
         default:
             return QString("???");
         }
@@ -83,23 +83,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case PHR:
-            return QString("PHR");
-        case mPHR:
-            return QString("Milli-PHR (1 / 1" THIN_SP_UTF8 "000)");
-        case uPHR:
-            return QString("Micro-PHR (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case ULEAD:
+            return QString("ULEAD");
+        case mULEAD:
+            return QString("Milli-ULEAD (1 / 1" THIN_SP_UTF8 "000)");
+        case uULEAD:
+            return QString("Micro-ULEAD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case PHR:
-            return QString("TestPHRs");
-        case mPHR:
-            return QString("Milli-TestPHR (1 / 1" THIN_SP_UTF8 "000)");
-        case uPHR:
-            return QString("Micro-TestPHR (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case ULEAD:
+            return QString("TestULEADs");
+        case mULEAD:
+            return QString("Milli-TestULEAD (1 / 1" THIN_SP_UTF8 "000)");
+        case uULEAD:
+            return QString("Micro-TestULEAD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case PHR:
+    case ULEAD:
         return 100000000;
-    case mPHR:
+    case mULEAD:
         return 100000;
-    case uPHR:
+    case uULEAD:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case PHR:
+    case ULEAD:
         return 8;
-    case mPHR:
+    case mULEAD:
         return 5;
-    case uPHR:
+    case uULEAD:
         return 2;
     default:
         return 0;

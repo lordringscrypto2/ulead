@@ -1,0 +1,26 @@
+[Unit]
+Description=ULead's distributed currency daemon
+After=network.target
+
+[Service]
+User=ulead
+Group=ulead
+
+Type=forking
+PIDFile=/var/lib/uleadd/uleadd.pid
+
+ExecStart=/usr/bin/uleadd -daemon -pid=/var/lib/uleadd/uleadd.pid \
+          -conf=/etc/ulead/ulead.conf -datadir=/var/lib/uleadd
+
+ExecStop=-/usr/bin/ulead-cli -conf=/etc/ulead/ulead.conf \
+         -datadir=/var/lib/uleadd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Phore developers
+// Copyright (c) 2017 The ULead developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -265,10 +265,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Phore server.");
+            "\nStop ULead server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Phore server stopping";
+    return "ULead server stopping";
 }
 
 
@@ -352,38 +352,38 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Phore features */
-        {"phore", "masternode", &masternode, true, true, false},
-        {"phore", "listmasternodes", &listmasternodes, true, true, false},
-        {"phore", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"phore", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"phore", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"phore", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"phore", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"phore", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"phore", "masternodedebug", &masternodedebug, true, true, false},
-        {"phore", "startmasternode", &startmasternode, true, true, false},
-        {"phore", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"phore", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"phore", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"phore", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"phore", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"phore", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"phore", "mnbudget", &mnbudget, true, true, false},
-        {"phore", "preparebudget", &preparebudget, true, true, false},
-        {"phore", "submitbudget", &submitbudget, true, true, false},
-        {"phore", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"phore", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"phore", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"phore", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"phore", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"phore", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"phore", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"phore", "checkbudgets", &checkbudgets, true, true, false},
-        {"phore", "mnsync", &mnsync, true, true, false},
-        {"phore", "spork", &spork, true, true, false},
-        {"phore", "getpoolinfo", &getpoolinfo, true, true, false},
-        {"phore", "makekeypair", &makekeypair, true, true, false},
+        /* ULead features */
+        {"ulead", "masternode", &masternode, true, true, false},
+        {"ulead", "listmasternodes", &listmasternodes, true, true, false},
+        {"ulead", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"ulead", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"ulead", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"ulead", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"ulead", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"ulead", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"ulead", "masternodedebug", &masternodedebug, true, true, false},
+        {"ulead", "startmasternode", &startmasternode, true, true, false},
+        {"ulead", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"ulead", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"ulead", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"ulead", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"ulead", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"ulead", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"ulead", "mnbudget", &mnbudget, true, true, false},
+        {"ulead", "preparebudget", &preparebudget, true, true, false},
+        {"ulead", "submitbudget", &submitbudget, true, true, false},
+        {"ulead", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"ulead", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"ulead", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"ulead", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"ulead", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"ulead", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"ulead", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"ulead", "checkbudgets", &checkbudgets, true, true, false},
+        {"ulead", "mnsync", &mnsync, true, true, false},
+        {"ulead", "spork", &spork, true, true, false},
+        {"ulead", "getpoolinfo", &getpoolinfo, true, true, false},
+        {"ulead", "makekeypair", &makekeypair, true, true, false},
 #ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -450,8 +450,8 @@ static const CRPCCommand vRPCCommands[] =
         {"zerocoin", "exportzerocoins", &exportzerocoins, false, false, true},
         {"zerocoin", "reconsiderzerocoins", &reconsiderzerocoins, false, false, true},
         {"zerocoin", "getspentzerocoinamount", &getspentzerocoinamount, false, false, false},
-        {"zerocoin", "getzphrseed", &getzphrseed, false, false, true},
-        {"zerocoin", "setzphrseed", &setzphrseed, false, false, true}
+        {"zerocoin", "getzuleadseed", &getzuleadseed, false, false, true},
+        {"zerocoin", "setzuleadseed", &setzuleadseed, false, false, true}
 
 #endif // ENABLE_WALLET
 };
@@ -615,14 +615,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> phore-cli " + methodname + " " + args + "\n";
+    return "> ulead-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:11772/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:11789/\n";
 }
 
 void RPCRegisterTimerInterface(RPCTimerInterface *iface)

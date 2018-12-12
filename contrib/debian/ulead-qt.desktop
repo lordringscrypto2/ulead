@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=ULead
+Comment=ULead P2P Cryptocurrency
+Comment[fr]=ULead, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=ULead, eşten eşe kriptografik sanal para birimi
+Exec=ulead-qt %u
+Terminal=false
+Type=Application
+Icon=ulead128
+MimeType=x-scheme-handler/ulead;
+Categories=Office;Finance;
