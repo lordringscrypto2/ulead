@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/uleadproject/ulead.git"
+- "url": "https://github.com/uleadapp/Ulead.git"
   "dir": "ulead"
 files: []
 script: |
