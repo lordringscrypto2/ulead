@@ -217,7 +217,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04659d53bd8f7ad9d34a17281febedac754e5a6eb136142d3a9c6c0ea21b6ed7498ceb3d872eed00ae755f7aeadaeb1d9ab5e1a8f1e7efcd0ddcb39d4623c12790";
+        strSporkKey = "04f44a9aa06df792de1b3a9be1a30858d84af844168a3c078b2e38688e207ab569b0e5e8c97e1b7ebc05da2602621f5dd7ca58688af142580660a2f7d39e24f92b";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
 
         /** Zerocoin */
