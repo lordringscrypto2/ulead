@@ -5928,6 +5928,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (pfrom->nVersion < CADDR_TIME_VERSION && addrman.size() > 1000)
             return true;
         if (vAddr.size() > 1000) {
+			LogPrintf("$$$$--- Misbehaving(pfrom->GetId(), 20); is calling from main 5931 \n");
+			LogPrintf("$$$$--- vAddr.size( is %d- \n",vAddr.size());
             Misbehaving(pfrom->GetId(), 20);
             return error("message addr size() = %u", vAddr.size());
         }
@@ -5990,6 +5992,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         vRecv >> vInv;
         if (vInv.size() > MAX_INV_SZ) {
             LOCK(cs_main);
+			LogPrintf("$$$$--- Misbehaving(pfrom->GetId(), 20); is calling from main 5994- \n");
+			LogPrintf("$$$$--- vInv.size() is %d- \n",vInv.size());
+			LogPrintf("$$$$--- MAX_INV_SZ is %d- \n",MAX_INV_SZ);
             Misbehaving(pfrom->GetId(), 20);
             return error("message inv size() = %u", vInv.size());
         }
@@ -6054,6 +6059,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         vRecv >> vInv;
         if (vInv.size() > MAX_INV_SZ) {
             LOCK(cs_main);
+			LogPrintf("$$$$--- Misbehaving(pfrom->GetId(), 20); is calling from main 6062 \n");
+			LogPrintf("$$$$--- vInv.size()( is %d- \n",vInv.size());
+			LogPrintf("$$$$--- MAX_INV_SZ( is %d- \n",MAX_INV_SZ);
             Misbehaving(pfrom->GetId(), 20);
             return error("message getdata size() = %u", vInv.size());
         }
@@ -6321,6 +6329,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         unsigned int nCount = ReadCompactSize(vRecv);
         if (nCount > MAX_HEADERS_RESULTS) {
             LOCK(cs_main);
+			LogPrintf("$$$$--- Misbehaving(pfrom->GetId(), 20); is calling from main 6332 \n");
+			LogPrintf("$$$$--- nCount is %d- \n",nCount);
+			LogPrintf("$$$$--- MAX_HEADERS_RESULTS is %d- \n",MAX_HEADERS_RESULTS);
             Misbehaving(pfrom->GetId(), 20);
             return error("headers message size = %u", nCount);
         }
@@ -6341,7 +6352,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             CValidationState state;
             if (pindexLast != NULL && header.hashPrevBlock != pindexLast->GetBlockHash()) {
                 LOCK(cs_main);
-                Misbehaving(pfrom->GetId(), 20);
+				LogPrintf("$$$$--- Misbehaving(pfrom->GetId(), 20); is calling from main 6352 \n");
+				Misbehaving(pfrom->GetId(), 20);
                 return error("non-continuous headers sequence");
             }
 
